@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Breakout Power Rangers — Derivadas en Acción</title>
+
+<script>
+window.MathJax = {
+  tex: {inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']]}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+body{
+    margin:0;
+    font-family:'Trebuchet MS', sans-serif;
+    background: radial-gradient(circle, #001f3f, #000000);
+    color:white;
+    text-align:center;
+}
+
+.screen{display:none; padding:20px;}
+.active{display:block;}
+
+.timer{
+    position:fixed;
+    top:10px;
+    right:20px;
+    font-size:22px;
+    background:black;
+    padding:10px;
+    border-radius:10px;
+    color:#00ffcc;
+}
+
+button{
+    background:#cc0000;
+    border:none;
+    padding:12px 20px;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    border-radius:8px;
+    margin:10px;
+}
+button:hover{background:#ff0000;}
+
+.math{
+    font-size:22px;
+    margin:20px;
+    background:rgba(255,255,255,0.1);
+    padding:15px;
+    border-radius:10px;
+}
+
+.hint{display:none; margin:10px; color:#ffff00;}
+
+.image-box{
+    margin:20px auto;
+    width:500px;
+}
+
+.video-box{
+    margin:20px auto;
+}
+
+.candado {
+  width: 350px;
+  height: 60px;
+  font-size: 24px;
+  text-align: center;
+  border-radius: 12px;
+  border: 3px solid #ff0000;
+  box-shadow: 0 0 15px #ff0000;
+}
+</style>
+</head>
+
+<body>
+
+<div class="timer" id="timer">Tiempo: --:--</div>
+
+<!-- INTRO -->
+<div id="intro" class="screen active">
+<h1>⚡ Breakout Power Rangers: Derivadas en Acción ⚡</h1>
+
+<div class="video-box">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8Nd4ZrG1t1Y" 
+title="Intro Power Rangers" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<p>La ciudad de Angel Grove está bajo ataque. Un monstruo gigante amenaza la economía mundial.</p>
+<p>Solo dominando las derivadas podréis activar los Zords y formar el Megazord.</p>
+
+<h2>Selecciona duración</h2>
+<button onclick="startGame(60)">Modo 60 min</button>
+<button onclick="startGame(90)">Modo 90 min</button>
+</div>
+
+<!-- PRUEBA 1 -->
+<div id="test1" class="screen">
+<h1>🧙 Rita Repulsa — Sabotaje económico</h1>
+
+<div class="image-box">
+<img src="./resources/rita.png" width="500">
+</div>
+
+<p>Rita ha manipulado los beneficios de una empresa para hundir el mercado.</p>
+
+<div class="math">\( B(x)=x^3-6x^2+9x \)</div>
+<p>Calcula \(B'(2)\)</p>
+
+<button onclick="showHint('h1')">Pista</button>
+<div id="h1" class="hint">Deriva y sustituye x=2</div>
+
+<button onclick="next('test2')">Continuar</button>
+</div>
+
+<!-- PRUEBA 2 -->
+<div id="test2" class="screen">
+<h1>🗡 Goldar — Crisis de producción</h1>
+
+<div class="image-box">
+<img src="./resources/goldar.png" width="500">
+</div>
+
+<p>Goldar bloquea las fábricas. Necesitamos analizar el coste medio.</p>
+
+<div class="math">\( C(x)=\frac{2x+5}{x} \)</div>
+<p>Calcula \(C'(5)\)</p>
+
+<button onclick="showHint('h2')">Pista</button>
+<div id="h2" class="hint">Simplifica antes de derivar.</div>
+
+<button onclick="next('test3')">Continuar</button>
+</div>
+
+<!-- PRUEBA 3 -->
+<div id="test3" class="screen">
+<h1>⚡ Lord Zedd — Manipulación digital</h1>
+
+<div class="image-box">
+<img src="./resources/zedd.png" width="500">
+</div>
+
+<p>Lord Zedd manipula el crecimiento de usuarios para colapsar la red.</p>
+
+<div class="math">\( U(x)=3e^{0.5x} \)</div>
+<p>Calcula \(U'(0)\)</p>
+
+<button onclick="showHint('h3')">Pista</button>
+<div id="h3" class="hint">La derivada de \(e^{kx}\) es proporcional a ella misma.</div>
+
+<button onclick="next('test4')">Continuar</button>
+</div>
+
+<!-- PRUEBA 4 -->
+<div id="test4" class="screen">
+<h1>🧪 Ivan Ooze — Caos en la demanda</h1>
+
+<div class="image-box">
+<img src="./resources/ooze.png" width="500">
+</div>
+
+<p>Ivan Ooze altera la demanda global. Analiza la elasticidad.</p>
+
+<div class="math">\( D(x)=\ln(x^2+1) \)</div>
+<p>Calcula \(D'(1)\)</p>
+
+<button onclick="showHint('h4')">Pista</button>
+<div id="h4" class="hint">Usa regla de la cadena.</div>
+
+<button onclick="next('lock')">Ir al candado final</button>
+</div>
+
+<!-- CANDADO FINAL -->
+<div id="lock" class="screen">
+<h1>🔐 Activar Megazord 🔐</h1>
+
+<div class="image-box">
+<img src="./resources/megazord_ready.png" width="500">
+</div>
+
+<p>Los Zords están listos. Introduce el código para formar el Megazord.</p>
+<p><strong>Formato:</strong> Rita-Goldar-Zedd-Ooze</p>
+
+<input id="password" class="candado" placeholder="----">
+<br>
+<button onclick="checkPassword()">Activar</button>
+</div>
+
+<!-- ÉXITO -->
+<div id="success" class="screen">
+<h1>🤖 ¡Megazord Activado! 🤖</h1>
+
+<div class="video-box">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1o2oZ8JxQ9Y" 
+title="Megazord Victory" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<p>El Megazord derrota al monstruo. La ciudad está a salvo.</p>
+</div>
+
+<!-- FRACASO -->
+<div id="fail" class="screen">
+<h1>💥 El monstruo ha ganado 💥</h1>
+
+<div class="video-box">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0dXx9gN6F7M" 
+title="Villains win" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<p>Los villanos dominan la ciudad. La economía ha colapsado.</p>
+<button onclick="restart()">Reintentar</button>
+</div>
+
+<script>
+let timeLeft;
+let timerInterval;
+let gameFinished=false;
+
+function startGame(minutes){
+    timeLeft = minutes*60;
+    gameFinished=false;
+    show('test1');
+    startTimer();
+}
+
+function startTimer(){
+    timerInterval=setInterval(()=>{
+        if(gameFinished) return;
+        timeLeft--;
+        let m=Math.floor(timeLeft/60);
+        let s=timeLeft%60;
+        document.getElementById("timer").innerText=`Tiempo: ${m}:${s.toString().padStart(2,'0')}`;
+        if(timeLeft<=0){
+            show('fail');
+            clearInterval(timerInterval);
+        }
+    },1000);
+}
+
+function show(id){
+    document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+function next(id){ show(id); }
+
+function checkPassword(){
+    let pass=document.getElementById("password").value.trim();
+    if(pass==="3-2-15-1"){
+        gameFinished=true;
+        show('success');
+    }else{
+        show('fail');
+    }
+}
+
+function restart(){
+    clearInterval(timerInterval);
+    show('intro');
+    document.getElementById("timer").innerText="Tiempo: --:--";
+}
+
+function showHint(id){
+    document.getElementById(id).style.display="block";
+}
+</script>
+
+</body>
+</html>
