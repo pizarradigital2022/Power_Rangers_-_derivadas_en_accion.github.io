@@ -75,6 +75,12 @@ button:hover{background:#ff0000;}
   box-shadow: 0 0 15px #ff0000;
 }
 
+.instrucciones {
+    font-size: 14px; /* o el tamaño que quieras */
+    color: #ffff88;  /* opcional: color más suave para distinguirlo */
+    margin-top: 10px;
+}
+
 .teacher-panel{
     position:fixed;
     bottom:0;
@@ -205,9 +211,16 @@ button:hover{background:#ff0000;}
 <img src="./resources/megazord_ready.png" width="600" alt="Llamando al Megazord">
 </div>
 
-<p>Los Zords están listos. Introduce el código para formar el Megazord.</p>
+<p>Los Zords están listos para ser invocados. Introduce el código para formar el Megazord.</p>
 <p><strong>Formato:</strong> Rita-Goldar-Zedd-Ooze</p>
-
+<p class="instrucciones">
+  Para construir el código de invocación usa las <strong>siguientes instrucciones</strong>:
+  <br> <strong>Prueba 1 - Rita</strong>: Valor absoluto del resultado obtenido.
+  <br> <strong>Prueba 2 - Goldar</strong>: Primer dígito de la parte decimal (sin signo).
+  <br> <strong>Prueba 3 - Lord Zedd</strong>: Valor absoluto del resultado multiplicado por 10.
+  <br> <strong>Prueba 4 - Ivan Ooze</strong>: Valor obtenido.
+  <br> ¡Ánimo! ¡Hay que introducir correctamente los valores para vencer a los villanos!
+</p>
 <input id="password" class="candado" placeholder="----">
 <br>
 <button onclick="checkPassword()">Activar</button>
