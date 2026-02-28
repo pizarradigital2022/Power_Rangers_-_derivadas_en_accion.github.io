@@ -74,6 +74,22 @@ button:hover{background:#ff0000;}
   border: 3px solid #ff0000;
   box-shadow: 0 0 15px #ff0000;
 }
+
+.teacher-panel{
+    position:fixed;
+    bottom:0;
+    left:0;
+    background:black;
+    color:#00ffcc;
+    padding:12px;
+    font-size:14px;
+    border-top:2px solid #00ffcc;
+    max-width:300px;
+}
+.sol{
+    color:#ffff00;
+    font-weight:bold;
+}
 </style>
 </head>
 
@@ -215,6 +231,18 @@ title="Villains win" frameborder="0" allowfullscreen></iframe>
 <button onclick="restart()">Reintentar</button>
 </div>
 
+<!-- PANEL PROFESOR -->
+<div id="panelProfesor" class="teacher-panel" style="display:none;">
+  <b>🧑‍🏫 Panel Profesor — Soluciones</b><br><br>
+
+  <b>Rita Repulsa</b> → B'(2) = <span class="sol">-3</span><br>
+  <b>Goldar</b> → C'(5) = <span class="sol">-0.2</span><br>
+  <b>Lord Zedd</b> → U'(0) = <span class="sol">1.5</span><br>
+  <b>Ivan Ooze</b> → D'(1) = <span class="sol">1</span><br><br>
+
+  🔐 Contraseña final: <b>3-2-15-1</b>
+</div>
+
 <script>
 let timeLeft;
 let timerInterval;
@@ -267,6 +295,17 @@ function restart(){
 function showHint(id){
     document.getElementById(id).style.display="block";
 }
+
+document.getElementById("accesoProfe").addEventListener("input", function() {
+  const clave = this.value.trim();
+  const panel = document.getElementById("panelProfesor");
+
+  if (clave === "PROFE") {
+    panel.style.display = "block";
+  } else {
+    panel.style.display = "none";
+  }
+});
 </script>
 
 </body>
